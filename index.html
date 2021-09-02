@@ -14,30 +14,34 @@
         <h2 class="form__header text-center mb-4">Zarejstruj się</h2>
         <div class="form__wrapper form-group col-sm-8 offset-sm-2 mb-3">
             <label for="userName">Nazwa użytkownika:</label>
-            <input type="text" class="form-control" id="userName">
-            <p class="form__info"></p>
+            <input type="text" class="form-control" id="username" placeholder="Podaj nazwę użytkownika">
+            <p class="form__info text-warning">Error</p>
         </div>
         <div class="form__wrapper form-group col-sm-8 offset-sm-2 mb-3">
-            <label for="password">Hasło:</label>
-            <input type="password" class="form-control" id="password">
-            <p class="form__info"></p>
+            <label for="password1">Hasło:</label>
+            <input type="password" class="form-control" id="password1" placeholder="Podaj hasło">
+            <p class="form__info text-warning"></p>
         </div>
         <div class="form__wrapper form-group col-sm-8 offset-sm-2 mb-3">
-            <label for="passwordRepeat">Powtórz hasło:</label>
-            <input type="password" class="form-control" id="passwordRepeat">
-            <p class="form__info"></p>
+            <label for="password2">Powtórz hasło:</label>
+            <input type="password" class="form-control" id="password2" placeholder="Powtórz hasło">
+            <p class="form__info  text-warning"></p>
         </div>
         <div class="form__wrapper form-group col-sm-8 offset-sm-2 mb-3">
             <label for="email">Adres e-mail:</label>
             <input type="email" class="form-control" id="email" placeholder="jankowalski@gmail.com">
-            <p class="form__info"></p>
+            <p class="form__info text-warning"></p>
         </div>
         <div class="form__buttons-wrapper mb-2 mt-2">
-            <button type="button" class="form__btn btn bg-dark text-light">Wyczyść</button>
+            <button type="button" class="form__btn form__btn-clear btn bg-dark text-light">Wyczyść</button>
             <div class="col-2"></div>
-            <button type="submit" class="form__btn btn bg-dark text-light">Zatwierdź</button>
+            <button type="button" class="form__btn form__btn-submit btn bg-dark text-light">Zatwierdź</button>
         </div>
     </form>
+    <section class="popup row col-10 col-lg-6 p-5">
+        <h2 class="popup__header text-center">Formularz został poprawnie wysłany!</h2>
+        <button class="popup__btn btn bg-dark text-white col-6 offset-3 col-lg-4 offset-lg-4">Zamknij</button>
+    </section>
     <script src="app.js"></script>
 </body>
 
