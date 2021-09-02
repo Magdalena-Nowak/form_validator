@@ -1,0 +1,27 @@
+.container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(
+      317deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(3, 3, 3, 0.6839110644257703) 30%
+    ),
+    url(../../img/pexels-alex-conchillos-3648850.jpg);
+  background-blend-mode: overlay;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.4);
+  &__info {
+    display: none;
+  }
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

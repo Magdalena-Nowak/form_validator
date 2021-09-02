@@ -1,0 +1,23 @@
+{
+  "name": "form_validator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Magdalena-Nowak/form_validator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Magdalena-Nowak/form_validator/issues"
+  },
+  "homepage": "https://github.com/Magdalena-Nowak/form_validator#readme",
+  "dependencies": {
+    "bootstrap": "^5.1.0",
+    "sass": "^1.39.0"
+  }
+}
