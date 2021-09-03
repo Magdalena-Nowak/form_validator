@@ -28,15 +28,22 @@
 }
 
 .popup {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgb(255, 255, 255);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transition: all 1s ease-in-out;
-  display: none;
 }
 
 .popup.row {
   display: none;
+}
+
+.error {
+  display: block;
+}
+
+.popup.row.active {
+  display: block;
 }
