@@ -1,12 +1,12 @@
 const userName = document.querySelector("#username");
 const pass1 = document.querySelector("#password1");
 const pass2 = document.querySelector("#password2");
-const userEmail = document.querySelector("#email");
-
 const clearBtn = document.querySelector(".form__btn-clear");
 const submitBtn = document.querySelector(".form__btn-submit");
 const confirmPopup = document.querySelector(".popup");
 const confirmBtn = document.querySelector(".popup__btn");
+let userEmail;
+let min = 4;
 let allInputs;
 
 const showErr = (input, message) => {
@@ -21,16 +21,53 @@ const clearInput = (input) => {
   input.classList.remove("alert-warning");
 };
 
-const confirmSending = () => {
-  confirmPopup.classList.add("active");
+const checkPassStrength = (input) => {
+  const passRegex =
+    "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})";
+  if (passRegex.test(input)) {
+    console.log("ok");
+  } else {
+    showErr(
+      input,
+      "Hasło musi zawierać minimum 8 znaków w tym przynajmniej jedną: wielką litere, małą litere, cyfre, znak specjalny"
+    );
+  }
+};
+
+const checkPassword = (pass1, pass2) => {
+  if (pass1.value !== pass2.value) {
+    showErr(pass2, "Hasła nie pasują do siebie");
+  }
+};
+
+const checkLength = (input, min) => {
+  if (input.value.length < min) {
+    const inputAttribute = input.getAttribute("data-type");
+    errMessage = `${inputAttribute} składa się z min. ${min} znaków`;
+    showErr(input, errMessage);
+  }
+};
+
+const checkMail = (email) => {
+  const emailRegex =
+    '/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/';
+  if (emailRegex.test(email.value)) {
+    clearInput(email);
+  } else {
+    showErr(email, "E-mail jest niepoprawny");
+  }
 };
 
 const checkForm = (input) => {
   if (input.value === "") {
     showErr(input, input.placeholder);
   } else {
-    clearInput(input);
-    confirmSending();
+    checkLength(userName, min);
+    checkPassStrength(pass1);
+    checkPassword(pass1, pass2);
+    checkMail(userEmail);
+    checkErrors();
+    console.log(pass1, pass2);
   }
 };
 
@@ -49,7 +86,3 @@ submitBtn.addEventListener("click", (e) => {
     checkForm(input);
   });
 });
-
-confirmBtn.addEventListener('click', () => {
-  confirmPopup.classList.remove("active");
-})
